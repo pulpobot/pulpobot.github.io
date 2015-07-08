@@ -1,0 +1,27 @@
+/* Author: Chris Brough
+ * Date: 5-10-2012
+ * Layout: Print
+ * ---------------------------------------------------------------------------- */
+
+/* - General ------------------------------------------------------------------ */
+
+header, nav, footer, iframe,
+#toc, #sub-content {
+    display:none !important;
+}
+
+img {
+    border:none !important;
+    padding:none !important;
+}
+
+pre {
+    padding:20px;
+    border:1px solid #CCCCCC;
+}
+
+/* - Content ------------------------------------------------------------------ */
+
+#content .print-links {
+    display:block;
+}
