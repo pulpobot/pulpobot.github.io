@@ -2,6 +2,10 @@
 layout: post
 title: Switching to Vim
 category: post
+img:
+  small:  /images/vim/vim-post.png
+thumbnail:  /images/vim/vim.png
+tags: [tutorial, thumbnail, post, jekyll, bootstrap]
 ---
 
 ![Vim](/images/vim/vim.png)
