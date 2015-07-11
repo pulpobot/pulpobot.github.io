@@ -9,7 +9,7 @@ subtitle: 2D Runner Game for Mobile Devices
 tags: []
 ---
 
-![Ink Runner]( /images/inkRunner/inkRunner-bg.jpg)
+![Ink Runner]( /images/inkRunner/inkRunner-bg.JPG)
 
 
 Ink Runner puts the player in the control of a young shaman in a constant run to escape from the

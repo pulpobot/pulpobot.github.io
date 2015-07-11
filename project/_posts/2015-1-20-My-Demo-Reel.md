@@ -3,8 +3,8 @@ layout: post
 title: My Demo Reel
 category: project
 img:
-  small:  /images/demo-reel/demo-thumbnail.png
-thumbnail:  /images/demo-reel/demo-thumbnail.png
+  small:  /images/demo-reel/demo-thumbnail.PNG
+thumbnail:  /images/demo-reel/demo-thumbnail.PNG
 tags: []
 ---
 
