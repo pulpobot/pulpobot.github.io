@@ -17,9 +17,13 @@ title: Santiago Alvarez
         {% endunless %}
         <li>
             <div class="wrap group">
-				{% if post.thumbnail %}
-				<a href="{{ post.url }}">
-				<img src="{{ post.thumbnail }}" style="float:left;border:0; width:160px;height:88px" /></a>
+				{% if post.thumbnail %}			
+				
+				<a href="{{ post.url }}"><img src="{{ post.thumbnail }}" style="float:left;border:0; width:160px;height:88px" usemap="#clickableArea"/></a>
+				<map name="clickableArea">
+				  <area shape="rect" coords="0,0,160,88" href="{{ post.url }}">
+				</map>
+				
 				<!--<p>
 				<a class="btn" href="{{ BASE_PATH }}{{ post.url }}">Read more...</a>
 				</p>-->
