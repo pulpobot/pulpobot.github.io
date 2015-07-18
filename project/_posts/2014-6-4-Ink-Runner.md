@@ -55,8 +55,9 @@ animation integration from <a href="http://esotericsoftware.com/">Spine (a 2D An
 ###Cool Stuff - Challenges - Things I learned to do
 <ul>
   <li>Smooth 2D Camera Movement</li>
+  <li>Worked along another programmer and an artist</li>
   <li>Spine Integration</li>
-  <li>Other great ways to use Unity: Slides for a presentation</li>
+  <li>Other great ways to use Unity: Slides for a presentation</li>  
   <li>And a lot of knowledge from the certificate!</li>
  </ul>
 
