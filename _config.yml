@@ -1,4 +1,0 @@
-permalink: /:categories/:year/:month/:title
-markdown: rdiscount
-pagination: true;
-paginate: 6
