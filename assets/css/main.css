@@ -14,7 +14,7 @@ body {
   	font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #555;
+    color: #333;
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -24,7 +24,7 @@ body {
 h1, h3, h5, h6 {
 	font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: #333;
+    color: #444;
 }
 
 
@@ -51,7 +51,12 @@ h4
 	font-weight: 100;
 	font-size: 17px;
 	letter-spacing: 2px; 
-    color: #666666;
+    color: #222;
+}
+
+.top 
+{
+    color: #bbb;
 }
 
 /* Paragraph & Typographic */
@@ -67,7 +72,7 @@ p {
 
 /* Links */
 a {
-    color: #222222;
+    color: #e48a2d;
     word-wrap: break-word;
     text-decoration-color: red;
     text-decoration:dotted;
