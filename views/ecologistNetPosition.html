@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row headerRow">
+        <div class="col-md-3">
+            <div class="missionObjectiveBox">
+                <span class="missionObjectiveBoxHeader">OBJECTIVE 1&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <h1 class="missionObjectiveHeader" id="Title">PLACE MIST NET</h1>
+            <span id="ecologistMission2TopTaskDescription">Move the net into the flight path<br>of the Fruit Bats.</span>
+        </div>
+        <div class="col-md-3">
+            <div class="topCornerBatModal" id="topCornerBatModal">
+                <span id="topCornerBat"><img src="images/ecologist/2B_2_FruitBat.png" id="topCornerBat"/></span>
+                <span id="topCornerBatModalText">Fruit Bat</span>
+                <span id="topCornerBatModalCounter"><br><br><p>0/5</p></span>
+            </div>
+            <div class="topCornerBatModalInsect" id="topCornerBatModalInsect">
+                <span id="topCornerInsectBat"><img src="images/ecologist/2B_3_InsectivrousBat.png" id="topCornerInsectBat" /></span>
+                <span id="topCornerBatModalInsectText">Insectivorous Bat</span>
+                <span id="topCornerInsectBatModalCounter"><br><br><p>0/5</p></span>
+            </div>
+        </div>
+    </div>
+    <img src="images/ecologist/2B_NetCircluarField.png" id="netCircularField" />
+    <img src="images/ecologist/2B_Net_High.png" id="netNormal" />
+    <img src="images/ecologist/Icon_Hand_3.png" id="netDragHand" />
+    <img src="images/ecologist/2b_1_FuitBat_1.png" id="fruitBat1" class="fruitBat1" />
+    <img src="images/ecologist/2b_1_FuitBat_2.png" id="fruitBat2" class="fruitBat2"/>
+    <img src="images/ecologist/2b_1_FuitBat_2.png" id="fruitBat3" class="fruitBat3"/>
+    <img src="images/ecologist/2b_1_FuitBat_1.png" id="fruitBat4" class="fruitBat4"/>
+    <img src="images/ecologist/2b_1_FuitBat_1.png" id="fruitBat5" class="fruitBat5"/>
+    <img src="images/ecologist/2B_3_InsectivrousBat.png" id="insectBat1" class="insectBat1" />
+    <img src="images/ecologist/2B_3_InsectivrousBat.png" id="insectBat2" class="insectBat2" />
+    <img src="images/ecologist/2B_3_InsectivrousBat.png" id="insectBat3" class="insectBat3" />
+    <img src="images/ecologist/2B_3_InsectivrousBat.png" id="insectBat4" class="insectBat4" />
+    <img src="images/ecologist/2B_3_InsectivrousBat.png" id="insectBat5" class="insectBat5" />
+    
+    <div id="mission2InsectModalRight">
+        <div class="mission2InsectBatModalHeader"><h1>GREAT JOB!</h1></div>
+        <div class="mission2ModalTextContent">
+            <div class="row">
+                <div class="col-left-1">
+                    <span id="mission2ModalTextContentText">Now position your net to capture the Insectivorous Bats. Your goal is to capture five bats to send to the lab for testing.<br><br></span>
+                    <img src="images/ecologist/2B_3_InsectivrousBat.png" height="40%" width="40%" />
+                    <span id="mission2ModalTextContent"><line><t>INSECTIVOROUS BAT</line></span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <span class="mission2ModalNextButton" ng-click="beginInsect()">BEGIN <i class="fa fa-chevron-right"></i></span>
+    </div>
+
+    <div id="netPositionConfirmTitleText">WRONG!</div>
+    <div id="netPositionConfirmDescriptionText">Fruit Bats like to fly at<br>higher altitudes</div>
+    <!--<div id="modalMiddle">
+        <div class="mission2ModalHeader"><h1>PLACE MIST NET</h1></div>
+        <div class="mission2ModalTextContent">
+            <div class="row">
+                <div class="col-left-1">
+                    <span id="mission2ModalTextContentText">Position your net to capture the Insectivorous Bats. Your goal is to capture five bats to send to the lab for testing.<br><br></span>
+                    <img src="images/ecologist/2B_3_InsectivrousBat.png" height="60%" width="60%" />
+                    <span id="mission2ModalTextContent"><line>INSECTIVOROUS BAT</line></span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <span class="missionModalNextButton" ng-click="beginMission()">BEGIN <i class="fa fa-chevron-right"></i></span>
+    </div>-->
+
+</div>
+
+<div id="mission2StartCountdown">
+    <svg>
+        <circle cx="125" cy="125" r="100" class="currentObjectiveMission2CountdownTimer"></circle>
+    </svg>
+</div>
+
+<div id="missionBeginText">
+    <span>MISSION WILL <br>END IN</span>
+</div>
+<span id="missionCountdownNumber"></span>
