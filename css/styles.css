@@ -79,6 +79,13 @@ h1, h2 {
   margin-left: 0px;
   display: none; }
 
+.modalHeaderRight h1{
+ font-size: 72px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; 
+  margin-bottom: 25px;
+}
 
 .mission2ModalHeader h1 {
   margin-top: -20px;
@@ -125,6 +132,44 @@ h1, h2 {
   font-family: polarisHeavy;
   opacity: 0.4; 
   white-space: nowrap
+}
+
+#mission2EndRight {
+  height: auto;
+  width: 630px;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  margin-top: -200px;
+  margin-left: 0px;
+  display: none; }
+
+.mission2EndRightHeader h1 {
+  margin-top: -20px;
+  font-size: 103px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; 
+  white-space: nowrap
+}
+
+.mission2EndModalTextContent {
+  height: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+  font-family: polarisMedium;
+  font-size: 20px;
+  color: #000;
+  margin-top: -16px; }
+
+.mission2EndModalTextContent line{
+  font-family: polarisHeavy;
+  font-size: 25px;
+  color: #000;
+  opacity: 0.75;
 }
 
 .modalTextContent {
@@ -413,6 +458,12 @@ svg {
   height: 450px;
   padding: 25px;
   font-size: 38px; }
+
+.resultsPane h2{
+ font-family: polarisLight;
+  font-size: 30px;
+  color: #000;
+}
 
 .resultsPane h3 {
   font-size: 48px; }
@@ -868,7 +919,12 @@ svg {
 #woreProtectiveGear,
 #bloodSampleBonus,
 #nasalSampleBonus,
-#mosquitoSampleBonus {
+#mosquitoSampleBonus,
+#ecoWoreProtectiveGearStar,
+#ecoCapturedFruitBat,
+#ecoCapturedInsectBat,
+#ecoSpeedBonus,
+#ecoFiveEachBonus {
   opacity: 0.2; }
 
 .resultsPaneLine {

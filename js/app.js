@@ -4,7 +4,15 @@ sessionStorage.setItem('bloodSampleSpeedBonusStar', false);
 sessionStorage.setItem('nasalSampleAccuracyBonusStar', false);
 sessionStorage.setItem('mosquitoSampleSpeedBonusStar', false);
 
+//ecologist session
+sessionStorage.setItem('ecoWoreProtectiveGearStar', false);
+sessionStorage.setItem('ecoCapturedFruitBat', false);
+sessionStorage.setItem('ecoCapturedInsectBat', false);
+sessionStorage.setItem('ecoSpeedBonus', false);
+sessionStorage.setItem('ecoFiveEachBonus', false);
+
 var fieldVeterinarianStars = 0;
+var ecologistStars = 0;
 
 var app = angular.module("outbreaksRole2", ["ngRoute"]);
 
@@ -67,6 +75,10 @@ app.config(function($routeProvider)
     {
         templateUrl: "views/ecologistNetPosition.html",
         controller: "ecologistNetPositionCtrl"
+    }).when("/ecologistResults",
+    {
+        templateUrl: "views/ecologistResults.html",
+        controller: "ecologistResultsCtrl"
     });
 });
 
@@ -588,15 +600,18 @@ app.controller("ecologistProtectiveGearCtrl", function ($scope, $location, $time
 
     $scope.yes = function () {
         $('.protectiveGearContent').hide();
-        $('#modalMiddle').show();
-        $('.modalHeader').html('<h1>GOOD CHOICE</h1>');
+        $('#modalRight').show();
+        $('.modalHeaderRight').html('<h1>GOOD CHOICE</h1>');
         $('#modalTextContentText').html('You need to take precautions when dealing with potentially infected animals');
+        sessionStorage.ecoWoreProtectiveGearStar = true;
     }
     $scope.no = function () {
         $('.protectiveGearContent').hide();
-        $('#modalMiddle').show();
-        $('.modalHeader').html('<h1>INCORRECT</h1>');
+        $('#modalRight').show();
+        $('.modalHeaderRight').html('<h1>INCORRECT</h1>');
         $('#modalTextContentText').html("That will leave you exposed to potential pathogens.");
+        sessionStorage.ecoWoreProtectiveGearStar = false;
+
     }
     $scope.beginMission = function () {
         $location.path('ecologistNet');
@@ -618,6 +633,27 @@ app.controller("ecologistNetCtrl", function ($scope, $location) {
         $location.path('ecologistNetPosition');
     }
 });
+
+function EndNetEcologist(fruitBats, insectBats)
+{
+    if (fruitBats >= 5 && insectBats >= 5)
+        sessionStorage.ecoFiveEachBonus = true;
+
+    $("#topCornerBatModal").hide();
+    $("#mission2InsectModalRight").hide();
+    //Hide net and show final message
+    if(fruitBats >= 5 && insectBats >= 3)
+        $("#mission2EndRightHeader").html('<h1>GREAT JOB!</h1>');
+    else if (fruitBats >= 5 && insectBats <= 2)
+        $("#mission2EndRightHeader").html('<h1>FAIR JOB!</h1>');
+    else
+        $("#mission2EndRightHeader").html('<h1>POOR JOB!</h1>');
+
+    $("#netNormal").hide();
+    $("#mission2EndRight").show();
+
+    $("#mission2EndModalTextContentText").html("You collected " + fruitBats.toString() + " Fruit Bats and " + insectBats.toString() + " Insectivorous Bats. Samples from the bats will be sent to the lab. They will be released unharmed because fruit bats help pollinate the forests and insectivorous bats eat insects that damage crops.<br><br>");
+}
 
 app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
     var missionInterval;
@@ -645,6 +681,8 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
        containment: [300, 0, 1200, 700]
    });
 
+    $("#mission2EndRight").hide();
+
     //bats can have different speeds
     var batsSpeed = [-100, 100, -100, 100, 100];
     var insectBatsSpeed = [-100, 100, -100, 100, 100];
@@ -662,8 +700,7 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
     var batTrapped = [false, false, false, false, false];
     var insectBatTrapped = [false, false, false, false, false];
     var batsInNet = 0;
-    //var fps = 0.02;
-    var fps = 1;
+    var fps = 0.02;
 
     insectBatsInterval = setInterval(function () {
         for (var i = 0; i < 5; i++) {
@@ -725,6 +762,7 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                 batsInNet--;
                 //Update the current score
                 insectBatsCaptured++;
+                sessionStorage.ecoCapturedInsectBat = true;
                 insectBatTrapped[i] = false;
                 $('#topCornerInsectBatModalCounter').html('<br><br><p>' + insectBatsCaptured.toString() + "/" + insectBatsGoal.toString() + "</p>");
 
@@ -732,12 +770,18 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                 if (insectBatsCaptured >= insectBatsGoal && !insectBatsCompleted) {
                     insectBatsCompleted = true;
                     batsInNet = 3;
-                    console.log("end");
+                    $(document).trigger("mouseup");
+
                     //release all the bats
                     for (var i = 0; i < 5; i++) {
                         insectBatTrapped[i] = false;
                         $(bat).draggable({ disabled: true });
                     }
+
+                    sessionStorage.ecoSpeedBonus = true;
+
+                    EndNetEcologist(fruitBatsCaptured, insectBatsCaptured);    
+                    
                 }
                 else {
                     //Create a new bat after a few seconds
@@ -833,6 +877,7 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                 batsInNet--;
                 //Update the current score
                 fruitBatsCaptured++;
+                sessionStorage.ecoCapturedFruitBat = true;
                 batTrapped[i] = false;
                 $('#topCornerBatModalCounter').html('<br><br><p>' + fruitBatsCaptured.toString() + "/" + fruitBatsGoal.toString() + "</p>");
 
@@ -881,9 +926,6 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                                 $(batSpawn).show();
                                 batTrapped[i] = false;
                                 $(batSpawn).draggable({ disabled: true });
-                                if ($(bat).is('.ui-draggable-dragging')) {
-                                    return; // bar is being dragged
-                                }
                                 break;
                             }
                         }
@@ -1000,6 +1042,13 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
         $("#topCornerBatModalInsect").show();
     }
 
+    $scope.seeResults = function () {
+        clearInterval(missionInterval);
+        clearInterval(batsInterval);
+        clearInterval(insectBatsInterval);
+        $location.path('ecologistResults');
+    }
+
     $('#missionCountdownNumber').css(
        {
            'right': '118px'
@@ -1034,10 +1083,9 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
 
             $('.headerRow').hide();
             $('.contentRow').hide();
-            $('#syringeMeter').hide();
-            $('#syringeIMGMission').hide();
-            $('#currentMissionCountdown').hide();
-            $('#currentMissionCountdownNumber').hide();
+            $('#mission2StartCountdown').hide();
+            $('#missionBeginText').hide();
+            $('#missionCountdownNumber').hide();
             $('#modalMiddle').show();
 
             $('body').css(
@@ -1048,13 +1096,126 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                 'background-size': 'cover'
             });
 
-            //clearInterval(missionInterval);
-            //clearInterval(batsInterval);
-            //clearInterval(insectBatsInterval);
+            $(document).trigger("mouseup");
+            netSet = false;
+            batsInNet = 3;
+            //release all the bats
+            for (var i = 0; i < 5; i++) {
+                var bat = "#fruitBat" + ((i + 1).toString());
+                batTrapped[i] = false;
+                $(bat).draggable({ disabled: true });
+                insectBatTrapped[i] = false;
+                bat = "#insectBat" + ((i + 1).toString());
+                $(bat).draggable({ disabled: true });
+            }
+
+            EndNetEcologist(fruitBatsCaptured, insectBatsCaptured);
+            clearInterval(missionInterval);
+
         }
     }, 1000);
 
 });
+
+app.controller("ecologistResultsCtrl", function ($scope, $location, $timeout) {
+    $('body').css(
+    {
+        'background-image': 'url(../images/missionStartBackground.jpg)',
+        'background-position': 'center',
+        'background-repeat': 'no-repeat',
+        'background-size': 'cover'
+    });
+        
+
+    if (sessionStorage.ecoWoreProtectiveGearStar == 'true') {
+        ecologistStars++;
+        $('#ecoWoreProtectiveGearStar').css(
+        {
+            'opacity': '1'
+        });
+    }
+    if (sessionStorage.ecoCapturedFruitBat == 'true') {
+        ecologistStars++;
+        $('#ecoCapturedFruitBat').css(
+        {
+            'opacity': '1'
+        });
+    }
+    if (sessionStorage.ecoCapturedInsectBat == 'true') {
+        ecologistStars++;
+        $('#ecoCapturedInsectBat').css(
+        {
+            'opacity': '1'
+        });
+    }
+    if (sessionStorage.ecoSpeedBonus == 'true') {
+        ecologistStars++;
+        $('#ecoSpeedBonus').css(
+        {
+            'opacity': '1'
+        });
+    }
+    if (sessionStorage.ecoFiveEachBonus == 'true') {
+        ecologistStars++;
+        $('#ecoFiveEachBonus').css(
+        {
+            'opacity': '1'
+        });
+    }
+
+    for (var i = 0; i < ecologistStars; i++) {
+        var star = "#fVStar" + (i + 1).toString();
+        $(star).css(
+       {
+           'color': '#000000'
+       });
+    }
+
+    var countdownNumber = $('#missionCountdownNumber');
+    var countdown = 10;
+
+    countdownNumber.html(10);
+
+    $('#missionCountdownNumber').css(
+    {
+        'right': '118px'
+    });
+
+    setInterval(function () {
+        countdown = --countdown <= 0 ? 10 : countdown;
+
+        countdownNumber.html(countdown);
+
+        $('#missionCountdownNumber').css(
+        {
+            'right': '145px'
+        });
+
+    }, 1000);
+
+    if(ecologistStars >= 4)
+    {
+        $('#resultsPaneHeader').html("Great job!");
+        $('#resultsPaneText').html("Your bat samples helped confirm that Virus X spread from fruit bats to goats to humans.<br>The Ministry of Health Official will give you the details about how your team did.");
+    }
+    else if(ecologistStars >= 2)
+    {
+        $('#resultsPaneHeader').html("Fair job!");
+        $('#resultsPaneText').html("Your bat samples helped confirm that Virus X spread from fruit bats to goats to humans.<br>The Ministry of Health Official will give you the details about how your team did.");
+    }
+    else
+    {
+        $('#resultsPaneHeader').html("Poor job!");
+        $('#resultsPaneText').html("Better luck next time. Fortunately, our team was still able to confirm that Virus X spread from fruit bats to goats to humans.<br>The Ministry of Health Official will give you the details about how your team did.");
+    }
+
+    $("#resultsPaneLine").html();
+
+    //$timeout(function () {
+    //    $location.path('epidemiologist');
+    //}, 10000);
+});
+
 
 app.controller("epidemiologistMainCtrl", function ($scope, $location, $timeout) 
 {
