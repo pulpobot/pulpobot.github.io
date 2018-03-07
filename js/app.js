@@ -13,7 +13,9 @@ sessionStorage.setItem('ecoFiveEachBonus', false);
 
 var fieldVeterinarianStars = 0;
 var ecologistStars = 0;
-
+var missionDuration = 50.0;
+var currentMissionCountdownValue = 50.0;
+var missionInterval;
 var app = angular.module("outbreaksRole2", ["ngRoute"]);
 
 app.config(function($routeProvider) 
@@ -563,6 +565,7 @@ app.controller("fVResultsCtrl", function ($scope, $location, $timeout)
 
 app.controller("ecologistMainCtrl", function ($scope, $location, $timeout) 
 {
+    clearInterval(missionInterval);
     $('body').css(
     {
         'background-image': 'url(../images/ecologist/2B_Background_MissionStart.jpg)',
@@ -590,6 +593,7 @@ app.controller("ecologistMainCtrl", function ($scope, $location, $timeout)
 });
 
 app.controller("ecologistProtectiveGearCtrl", function ($scope, $location, $timeout) {
+    clearInterval(missionInterval);
     $('body').css(
        {
            'background-image': 'url(../images/protectiveGearBackground.jpg)',
@@ -611,14 +615,60 @@ app.controller("ecologistProtectiveGearCtrl", function ($scope, $location, $time
         $('.modalHeaderRight').html('<h1>INCORRECT</h1>');
         $('#modalTextContentText').html("That will leave you exposed to potential pathogens.");
         sessionStorage.ecoWoreProtectiveGearStar = false;
-
     }
+
+    $('#missionCountdownNumber').css(
+    {
+        'right': '118px'
+    });
+
+    $scope.seeResults = function () {
+        $location.path('ecologistResults');
+    }
+
+    currentMissionCountdownValue = missionDuration;
+    var countdownNumber = $('#missionCountdownNumber');
+    countdownNumber.html(missionDuration);
+
+    $('#currentObjectiveMission2CountdownTimer').css(
+    {
+        'animation': 'countdown ' + missionDuration.toString() + 's linear 1 forwards',
+    });
+
+    missionInterval = setInterval(function () {
+        currentMissionCountdownValue = --currentMissionCountdownValue <= -1 ? missionDuration : currentMissionCountdownValue;
+
+        if (currentMissionCountdownValue < 10) {
+            $('#missionCountdownNumber').css(
+            {
+                'right': '145px'
+            });
+        }
+        else {
+            $('#missionCountdownNumber').css(
+            {
+                'right': '118px'
+            });
+        }
+
+        countdownNumber.html(currentMissionCountdownValue)
+
+        if (currentMissionCountdownValue == 0) {
+            $('.protectiveGearContent').hide();
+            $('#modalRight').hide();
+            EndNetEcologist(0, 0);
+            clearInterval(missionInterval);
+        }
+    }, 1000);
+
     $scope.beginMission = function () {
+        clearInterval(missionInterval);
         $location.path('ecologistNet');
     }
 });
 
 app.controller("ecologistNetCtrl", function ($scope, $location) {
+    clearInterval(missionInterval);
     $('body').css(
     {
         'background-image': 'url(../images/ecologist/2B_1_Background.jpg)',
@@ -629,7 +679,61 @@ app.controller("ecologistNetCtrl", function ($scope, $location) {
 
     $('#modalRight').show();
 
+    $scope.seeResults = function () {
+        $location.path('ecologistResults');
+    }
+
+    var countdownNumber = $('#missionCountdownNumber');
+    countdownNumber.html(currentMissionCountdownValue);
+
+    if (currentMissionCountdownValue < 10) {
+        $('#missionCountdownNumber').css(
+        {
+            'right': '145px'
+        });
+    }
+    else {
+        $('#missionCountdownNumber').css(
+        {
+            'right': '118px'
+        });
+    }
+
+    var delay = (currentMissionCountdownValue - missionDuration).toString() + 's';
+
+    $('#currentObjectiveMission2CountdownTimer').css(
+    {
+        'animation': 'countdown ' + missionDuration.toString() + 's linear 1 forwards',
+        'animation-delay': delay
+    });
+
+    missionInterval = setInterval(function () {
+        currentMissionCountdownValue = --currentMissionCountdownValue <= -1 ? missionDuration : currentMissionCountdownValue;
+
+        if (currentMissionCountdownValue < 10) {
+            $('#missionCountdownNumber').css(
+            {
+                'right': '145px'
+            });
+        }
+        else {
+            $('#missionCountdownNumber').css(
+            {
+                'right': '118px'
+            });
+        }
+
+        countdownNumber.html(currentMissionCountdownValue)
+
+        if (currentMissionCountdownValue == 0) {
+            $('#modalRight').hide();
+            EndNetEcologist(0, 0);
+            clearInterval(missionInterval);
+        }
+    }, 1000);
+
     $scope.beginMission = function () {
+        clearInterval(missionInterval);
         $location.path('ecologistNetPosition');
     }
 });
@@ -656,7 +760,6 @@ function EndNetEcologist(fruitBats, insectBats)
 }
 
 app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
-    var missionInterval;
     var batsInterval;
     var insectBatsInterval;
     var heightTarget;
@@ -682,6 +785,24 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
    });
 
     $("#mission2EndRight").hide();
+    $("#batCaptureCircle1").hide();
+    $("#batCaptureCircle2").hide();
+    $("#batCaptureCircle3").hide();
+    $("#batCaptureCircle4").hide();
+    $("#batCaptureCircle5").hide();
+
+    $("#iconArrowDown1").hide();
+    $("#iconArrowDown2").hide();
+    $("#iconArrowDown3").hide();
+    $("#iconArrowDown4").hide();
+    $("#iconArrowDown5").hide();
+
+    $("#swipeText1").hide();
+    $("#swipeText2").hide();
+    $("#swipeText3").hide();
+    $("#swipeText4").hide();
+    $("#swipeText5").hide();
+
 
     //bats can have different speeds
     var batsSpeed = [-100, 100, -100, 100, 100];
@@ -749,6 +870,30 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                 if (!insectBatsCompleted && netSet && !insectBatRepositioning[i] && batsInNet < 3 && $(bat).position().left > $("#netNormal").position().left + 100 && $(bat).position().left < $("#netNormal").position().left + 400) {
                     insectBatTrapped[i] = true;
                     batsInNet++;
+                    $("#batCaptureCircle" + (i + 1).toString()).css
+                    (
+                    {
+                        left: ($(bat).position().left - 10).toString() + 'px',
+                        top: ($(bat).position().top - 60).toString() + 'px',
+                    });
+
+                    $("#iconArrowDown" + (i + 1).toString()).css
+                    (
+                    {
+                        left: ($(bat).position().left + 50).toString() + 'px',
+                        top: ($(bat).position().top + 130).toString() + 'px',
+                    });
+
+                    $("#swipeText" + (i + 1).toString()).css
+                    (
+                    {
+                        left: ($(bat).position().left - 20).toString() + 'px',
+                        top: ($(bat).position().top - 100).toString() + 'px',
+                    });
+
+                    $("#batCaptureCircle" + (i + 1).toString()).show();
+                    $("#iconArrowDown" + (i + 1).toString()).show();
+                    $("#swipeText" + (i + 1).toString()).show();
                     //Make him draggable
                     $(bat).draggable({ disabled: false });
                 }
@@ -757,6 +902,9 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
             else if (!insectBatsCompleted && insectBatTrapped[i] && ($(bat).position().top > heightTarget + 50 || $(bat).position().top < heightTarget - 50)) {
                 //Hide him and stop the dragging
                 $(bat).draggable({ disabled: true });
+                $("#batCaptureCircle" + (i + 1).toString()).hide();
+                $("#iconArrowDown" + (i + 1).toString()).hide();
+                $("#swipeText" + (i + 1).toString()).hide();
                 $(document).trigger("mouseup");
                 $(bat).hide();
                 batsInNet--;
@@ -777,6 +925,24 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                         insectBatTrapped[i] = false;
                         $(bat).draggable({ disabled: true });
                     }
+
+                    $("#batCaptureCircle1").hide();
+                    $("#batCaptureCircle2").hide();
+                    $("#batCaptureCircle3").hide()
+                    $("#batCaptureCircle4").hide();
+                    $("#batCaptureCircle5").hide();
+
+                    $("#iconArrowDown1").hide();
+                    $("#iconArrowDown2").hide();
+                    $("#iconArrowDown3").hide()
+                    $("#iconArrowDown4").hide();
+                    $("#iconArrowDown5").hide();
+
+                    $("#swipeText1").hide();
+                    $("#swipeText2").hide();
+                    $("#swipeText3").hide()
+                    $("#swipeText4").hide();
+                    $("#swipeText5").hide();
 
                     sessionStorage.ecoSpeedBonus = true;
 
@@ -863,6 +1029,56 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                 {
                     batTrapped[i] = true;
                     batsInNet++;
+                    if (i != 1 & i != 2) {
+                        $("#batCaptureCircle" + (i + 1).toString()).css
+                            (
+                            {
+                                left: ($(bat).position().left - 40).toString() + 'px',
+                                top: ($(bat).position().top - 40).toString() + 'px',
+                            });
+
+                        $("#iconArrowDown" + (i + 1).toString()).css
+                            (
+                            {
+                                left: ($(bat).position().left + 20).toString() + 'px',
+                                top: ($(bat).position().top + 130).toString() + 'px',
+                            });
+
+                        $("#swipeText" + (i + 1).toString()).css
+                            (
+                            {
+                                left: ($(bat).position().left - 50).toString() + 'px',
+                                top: ($(bat).position().top - 70).toString() + 'px',
+                            });
+                    }
+                    else
+                    {
+                        $("#batCaptureCircle" + (i + 1).toString()).css
+                         (
+                         {
+                             left: ($(bat).position().left - 40).toString() + 'px',
+                             top: ($(bat).position().top - 10).toString() + 'px',
+                         });
+
+                        $("#iconArrowDown" + (i + 1).toString()).css
+                            (
+                            {
+                                left: ($(bat).position().left + 20).toString() + 'px',
+                                top: ($(bat).position().top + 160).toString() + 'px',
+                            });
+
+                        $("#swipeText" + (i + 1).toString()).css
+                         (
+                         {
+                             left: ($(bat).position().left - 40).toString() + 'px',
+                             top: ($(bat).position().top - 40).toString() + 'px',
+                         });
+                    }
+
+                    $("#batCaptureCircle" + (i + 1).toString()).show();
+                    $("#iconArrowDown" + (i + 1).toString()).show();
+                    $("#swipeText" + (i + 1).toString()).show();
+
                     //Make him draggable
                     $(bat).draggable({ disabled: false });
                 }
@@ -872,6 +1088,9 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
             {
                 //Hide him and stop the dragging
                 $(bat).draggable({ disabled: true });
+                $("#batCaptureCircle" + (i + 1).toString()).hide();
+                $("#iconArrowDown" + (i + 1).toString()).hide();
+                $("#swipeText" + (i + 1).toString()).hide();
                 $(document).trigger("mouseup");
                 $(bat).hide();
                 batsInNet--;
@@ -895,6 +1114,23 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
                         $(bat).draggable({ disabled: true });
                     }
 
+                    $("#batCaptureCircle1").hide();
+                    $("#batCaptureCircle2").hide();
+                    $("#batCaptureCircle3").hide()
+                    $("#batCaptureCircle4").hide();
+                    $("#batCaptureCircle5").hide();
+
+                    $("#iconArrowDown1").hide();
+                    $("#iconArrowDown2").hide();
+                    $("#iconArrowDown3").hide()
+                    $("#iconArrowDown4").hide();
+                    $("#iconArrowDown5").hide();
+
+                    $("#swipeText1").hide();
+                    $("#swipeText2").hide();
+                    $("#swipeText3").hide()
+                    $("#swipeText4").hide();
+                    $("#swipeText5").hide();
                     //Start catching bats
                     $("#topCornerBatModal").hide();
                     $("#mission2InsectModalRight").show();
@@ -943,13 +1179,13 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
             if ($("#netNormal").position().top > (window.innerHeight / 3.9)) {
                 //Calculate the position of the confirm text based on the net position
                 var y = $("#netNormal").position().top - 90;
-                var x = $("#netNormal").position().left + 180;
+                var x = $("#netNormal").position().left + 120;
                 var ypx = y.toString() + 'px';
                 var xpx = x.toString() + 'px';
                 $("#netPositionConfirmTitleText").css({ top: ypx });
                 $("#netPositionConfirmTitleText").css({ left: xpx });
                 y = y + 50;
-                x = x - 70;
+                x = x - 10;
                 ypx = y.toString() + 'px';
                 xpx = x.toString() + 'px';
                 $("#netPositionConfirmDescriptionText").css({ top: ypx });
@@ -980,16 +1216,16 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
         //if it should capture insect bats
         else if (fruitBatsCompleted)
         {
-            if ($("#netNormal").position().top <= (window.innerHeight / 1.8)) {
+            if ($("#netNormal").position().top <= (window.innerHeight / 2)) {
                 //Calculate the position of the confirm text based on the net position
                 var y = $("#netNormal").position().top - 90;
-                var x = $("#netNormal").position().left + 190;
+                var x = $("#netNormal").position().left + 120;
                 var ypx = y.toString() + 'px';
                 var xpx = x.toString() + 'px';
                 $("#netPositionConfirmTitleText").css({ top: ypx });
                 $("#netPositionConfirmTitleText").css({ left: xpx });
                 y = y + 50;
-                x = x - 100;
+                x = x - 50;
                 ypx = y.toString() + 'px';
                 xpx = x.toString() + 'px';
                 $("#netPositionConfirmDescriptionText").css({ top: ypx });
@@ -1055,14 +1291,34 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
        });
 
     var countdownNumber = $('#missionCountdownNumber');
-    var countdown = 30;
 
-    countdownNumber.html(30);
+    countdownNumber.html(currentMissionCountdownValue);
+
+    if (currentMissionCountdownValue < 10) {
+        $('#missionCountdownNumber').css(
+        {
+            'right': '145px'
+        });
+    }
+    else {
+        $('#missionCountdownNumber').css(
+        {
+            'right': '118px'
+        });
+    }
+
+    var delay = (currentMissionCountdownValue - missionDuration).toString() + 's';
+
+    $('#currentObjectiveMission2CountdownTimer').css(
+    {
+        'animation': 'countdown ' + missionDuration.toString() + 's linear 1 forwards',
+        'animation-delay': delay
+    });
 
     missionInterval = setInterval(function () {
-        countdown = --countdown <= -1 ? 30 : countdown;
+        currentMissionCountdownValue = --currentMissionCountdownValue <= -1 ? missionDuration : currentMissionCountdownValue;
 
-        if (countdown < 10) {
+        if (currentMissionCountdownValue < 10) {
             $('#missionCountdownNumber').css(
             {
                 'right': '145px'
@@ -1076,11 +1332,9 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location) {
             });
         }
 
-        countdownNumber.html(countdown)
+        countdownNumber.html(currentMissionCountdownValue)
 
-        if (countdown == 0) {
-            sessionStorage.bloodSampleSpeedBonusStar = false;
-
+        if (currentMissionCountdownValue == 0) {
             $('.headerRow').hide();
             $('.contentRow').hide();
             $('#mission2StartCountdown').hide();
