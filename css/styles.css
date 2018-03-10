@@ -28,6 +28,11 @@ body, html {
   font-family: polarisBook;
   src: url(../fonts/Polaris-Book.otf); }
 
+@font-face {
+  font-family: MarkerFeltRegular;
+  src: url("../fonts/Marker Felt Regular.ttf"); }
+
+
 h1, h2 {
   color: #fff; }
 
@@ -57,10 +62,15 @@ h1, h2 {
   width: 800px;
   position: absolute;
   top: 50%;
-  left: 80%;
+  left: 50%;
   margin-top: -200px;
-  margin-left: -400px;
-  display: none; }
+  margin-left: -400px; }
+
+.modalHeader {
+  font-size: 72px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; }
 
 .modalHeader h1 {
   font-size: 72px;
@@ -68,6 +78,27 @@ h1, h2 {
   font-family: polarisHeavy;
   opacity: 0.4; }
 
+#modal2BMiddle {
+  height: auto;
+  width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -400px;
+  z-index: 3;
+}
+
+#modal2BMiddleComplete {
+  height: auto;
+  width: 800px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -400px;
+  z-index: 3;
+}
 
 #modalRight {
   height: auto;
@@ -125,6 +156,47 @@ h1, h2 {
   margin-left: 0px;
   display: none; }
 
+.pgYesNoButton {
+  height: 75px;
+  width: 100%;
+  background: linear-gradient(#a3a3a3 5%, #333333 95%);
+  font-size: 30px;
+  border-radius: 50px;
+  border: 0;
+  color: #fff;
+  font-family: polarisHeavy; }
+
+.resultsButton {
+  height: 75px;
+  width: 40%;
+  background: linear-gradient(#a3a3a3 5%, #333333 95%);
+  align-self:center;
+  font-size: 30px;
+  border-radius: 50px;
+  border: 0;
+  color: #fff;
+  display: block;
+    margin: -30px auto;
+  font-family: polarisHeavy; }
+
+
+#resultsBat {
+  height: auto;
+  width: 100%;
+   display: block;
+    margin: 0 auto;
+  }
+
+#resultsBatNames {
+  border: 0;
+  font-family: polarisHeavy; 
+  font-size: 20px;
+   display: table;
+    margin: 0 auto;
+     align-self:center;
+  }
+
+
 .mission2InsectBatModalHeader h1 {
   margin-top: -20px;
   font-size: 103px;
@@ -180,7 +252,21 @@ h1, h2 {
   font-family: polarisMedium;
   font-size: 20px;
   color: #000;
-  margin-top: -30px; }
+  margin-top: -15px; }
+
+
+.modal2BTextContent {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.88);
+  font-family: polarisMedium;
+  font-size: 30px;
+  color: #000;
+  margin-top: -15px;
+  align-content: center;
+  align-items: center;
+}
 
 .mission2ModalTextContent line{
   font-family: polarisHeavy;
@@ -188,6 +274,11 @@ h1, h2 {
   color: #000;
   opacity: 0.75;
 }
+
+.objectiveHeaderMission {
+  font-size: 16px;
+  font-family: polarisHeavy;
+  color: #000; }
 
 .modalNextButton {
   float: right;
@@ -358,24 +449,6 @@ svg {
   opacity: 0.75;
 }
 
-.topCornerBatModal{
-  width: 50%;
-  height: 140px;
-  margin-left: 150px;
-  background-color: rgba(51, 51, 51, 0.8);
-  margin-top: 45px; 
-  text-align:center;
-  font-family: polarisBold;
-  font-size: 16px;
-  color: #fff;
-}
-
-.topCornerBatModal p{
-  text-align:center;
-  font-family: polarisMedium;
-  font-size: 25px;
-  color: #fff;
-}
 
 .topCornerBatModalInsect{
   width: 50%;
@@ -937,18 +1010,6 @@ svg {
   transform: scale(0.95, 0.95);
   z-index: 3; }
 
-#fruitBatIMGObjective {
-  position: fixed;
-  top: 500px;
-  left: 600px;
-  z-index: 3; }
-
-#insectBatIMGObjective {
-  position: fixed;
-  top: 530px;
-  left: 1100px;
-  z-index: 3; }
-
 #netNormal {
     position: absolute;
     left: 685px;
@@ -1033,7 +1094,7 @@ svg {
 #insectBat1 {
     position: absolute;
     left: 1085px;
-    top: 900px;
+    top: 800px;
     /*transform: scale(0.4, 0.4);*/
     z-index: 1;
 }
@@ -1092,10 +1153,527 @@ svg {
 #swipeText4,
 #swipeText5 {
     position: absolute;
-    font-family: polarisMedium;
-    font-size: 16px;
+    font-family: MarkerFeltRegular;
+    font-size: 30px;
     color: #fff;
     left: 1325px;
     top: 690px;
     z-index: 0;
+    -webkit-transform: rotate(354deg);
+    -moz-transform: rotate(354deg);
+    -ms-transform: rotate(354deg);
+    -o-transform: rotate(354deg);
+    transform: rotate(354deg); }
+}
+
+#mainPageFolder {
+    position: absolute;
+    left: 140px;
+    top: 70px;
+    transform: rotate(-5deg);
+}
+
+.mainPage2BContent {
+    padding: 50px;
+}
+
+.mainPage2BContent h1 {
+    font-size: 60px;
+    color: #000;
+    font-family: polarisHeavy;
+    transform: rotate(-7deg);
+    position:absolute;
+    left: 300px;
+    top: 230px;
+}
+
+#mainPage2BImage {
+    position: absolute;
+    left: 210px;
+    top: 330px;
+}
+
+.mainPage2BMission {
+    padding: 50px;    
+}
+
+.mainPage2BMission h1 {
+    font-size: 35px;
+    color: #000;
+    font-family: MarkerFeltRegular;
+    transform: rotate(-7deg);
+    position:absolute;
+    left: 360px;
+    top: 690px;
+}
+
+.mainPage2BMission h2 {
+    text-align:center;
+font-size: 20px;
+    color: #000;
+    font-family: polarisMedium;
+    transform: rotate(-7deg);
+    position:absolute;
+    left: 330px;
+    top: 750px;
+    line-height: 2.3;
+}
+
+.mainRightPage2BMission {
+}
+
+.mainRightPage2BMission h1 {
+    font-size: 35px;
+    color: #000;
+    font-family: MarkerFeltRegular;
+    transform: rotate(-6deg);
+    position:absolute;
+    left: 1010px;
+    top: 90px;
+}
+.mainRightPage2BMission h2 {
+    text-align:center;
+    font-size: 40px;
+    color: #000;
+    font-family: MarkerFeltRegular;
+    transform: rotate(-6deg);
+    position:absolute;
+    left: 900px;
+    top: 230px;
+    line-height: 2.3;
+}
+
+#fruitBatIMGObjective {
+  position: fixed;
+  top: 360px;
+  left: 1000px;
+  z-index: 3; }
+
+#fruitBat2BlargeArrow {
+  position: fixed;
+  top: 360px;
+  left: 1000px;
+  z-index: 3; }
+
+#insectBatIMGObjective {
+  position: fixed;
+  top: 530px;
+  left: 1100px;
+  z-index: 3; }
+
+#protectiveGear {
+  position: relative;
+  z-index: 0;
+  top: 150px;
+  left: 250px; }
+
+.protectiveGearChoice {
+  position: absolute;
+  font-family: MarkerFeltRegular;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.protectiveGearGoodBadChoice {
+  font-size: 34px; }
+
+#protective2BGear {
+  position: relative;
+  z-index: 0;
+  top: -50px;
+  left: 250px; 
+  z-index: 3;
+}
+
+.protectiveGear2BProTip {
+  position: fixed;
+  top: 210px;
+  left: 365px;
+  font-family: MarkerFeltRegular;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(350deg);
+  -moz-transform: rotate(350deg);
+  -ms-transform: rotate(350deg);
+  -o-transform: rotate(350deg);
+  transform: rotate(350deg); }
+
+.protectiveGear2BChoice {
+  position: absolute;
+  font-family: MarkerFeltRegular;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.protectiveGearGoodBad2BChoice {
+  font-size: 34px; }
+
+#fruitBatIMGPaper {
+  position: absolute;
+  top: 70px;
+  left: 80px;
+  height: auto;
+  width: 80px; }
+
+#insectBatIMGPaper {
+  position: absolute;
+  top: 70px;
+  left: 285px;
+  height: auto;
+  width: 100px; }
+
+#Objective1Mission2B {
+  text-align:center;
+  position: fixed;
+  top: 125px;
+  left: 85px; }
+
+#Objective2Mission2B {
+  text-align:center;
+  position: fixed;
+  top: 110px;
+  left: 280px; }
+
+.objectiveHeaderMission2B {
+  font-size: 12px;
+  font-family: polarisHeavy;
+  color: #000; }
+
+#topCornerFruitBatCounterMission2B{
+  text-align:center;
+  font-family: polarisBold;
+  font-size: 35px;
+  color: #000;
+  position:fixed;
+  top: 20px;
+  left: 95px;
+}
+
+#topCornerFruitBatCounterMissionGoal2B{
+  text-align:center;
+  font-family: polarisMedium;
+  font-size: 25px;
+  color: #000;
+  position:fixed;
+  top: 30px;
+  left: 120px;
+}
+
+#topCornerInsectBatCounterMission2B{
+   text-align:center;
+  font-family: polarisBold;
+  font-size: 35px;
+  color: #000;
+  position:fixed;
+  top: 20px;
+  left: 305px;
+}
+
+#topCornerInsectBatCounterMissionGoal2B{
+   text-align:center;
+  font-family: polarisMedium;
+  font-size: 25px;
+  color: #000;
+  position:fixed;
+  top: 30px;
+  left: 330px;
+}
+
+.leftMissionHeader2BHR {
+  max-width: 343px;
+  margin: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 35px; }
+
+#starArrow12B {
+  position: absolute;
+  top: 250px;
+  left: 80px;
+  height: auto;
+  width: 75px;
+  z-index: 2;
+}
+
+.mission2BStar {
+  font-size: 59px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #000000; 
+  margin-left: 20px;
+}
+
+
+#fruitBatsTutorial {
+  position: relative;
+  z-index: 0;
+  top: -50px;
+  left: 250px; 
+  z-index: 3;
+  font-family: MarkerFeltRegular;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.fruitBatsTutorialTitle {
+  position: fixed;
+  top: 210px;
+  left: 465px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.fruitBatsTutorialDescription {
+  position: fixed;
+  top: 260px;
+  left: 415px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.fruitBatsTutorialNet {
+  position: fixed;
+  top: 400px;
+  left: 565px;
+  font-family: MarkerFeltRegular;
+  font-size: 38px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); 
+  line-height: 1.7;
+}
+
+.insectBatsTutorialTitle {
+  position: fixed;
+  top: 700px;
+  left: 1365px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.insectBatsTutorialDescription {
+  position: fixed;
+  top: 760px;
+  left: 1315px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+
+#netTutorialArrow {
+  position: absolute;
+  top: 570px;
+  left: 1225px;
+}
+
+.fruitBatsReminderTitle {
+  position: fixed;
+  top: 200px;
+  left: 1365px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.fruitBatsReminderDescription {
+  position: fixed;
+  top: 260px;
+  left: 1385px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+
+.insectBatsReminderTitle {
+ position: fixed;
+  top: 800px;
+  left: 265px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.insectBatsReminderDescription {
+  position: fixed;
+  top: 860px;
+  left: 180px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.starEarnedTitle {
+  position: fixed;
+  top: 270px;
+  left: 265px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+#checkFruitBats {
+  position: absolute;
+  top: 60px;
+  left: 95px;
+  z-index: 3;
+}
+
+#checkInsectBats {
+  position: absolute;
+   top: 60px;
+  left: 305px;
+  z-index: 3;
+}
+
+#globalExpert {
+  position: absolute;
+   top: 680px;
+  left: 60px;
+  z-index: 3;
+}
+
+#globalExpertTitle {
+  position: absolute;
+   top: 1030px;
+  left: 90px;
+   font-family: polarisBold;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+#globalExpertBubble {
+  position: absolute;
+   top: 500px;
+  left: 210px;
+}
+
+
+#globalExpertDescription {
+  position: absolute;
+   top: 540px;
+  left: 240px;
+   font-family: polarisMedium;
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  line-height: 1.7;
+
+}
+
+.repositionTitle {
+ position: fixed;
+  top: 800px;
+  left: 265px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg); }
+
+.repositionDescription {
+  position: fixed;
+  top: 860px;
+  left: 180px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg); }
+
+
+#repositionArrow {
+  position: absolute;
+   top: 500px;
+  left: 210px;
+  -webkit-transform: rotate(220deg);
+  -moz-transform: rotate(220deg);
+  -ms-transform: rotate(220deg);
+  -o-transform: rotate(220deg);
+  transform: rotate(220deg);
 }
