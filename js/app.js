@@ -763,10 +763,10 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
     var netSet = false;
     var fruitBatsCompleted = false;
     var fruitBatsCaptured = 0;
-    var fruitBatsGoal = 1;
+    var fruitBatsGoal = 5;
     var insectBatsCompleted = false;
     var insectBatsCaptured = 0;
-    var insectBatsGoal = 1;
+    var insectBatsGoal = 5;
     $("#topCornerBatModalInsect").hide();
     $('body').css(
     {
