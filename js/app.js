@@ -981,7 +981,7 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
 
                     }, 3000);
 
-                    if (insectBatsCaptured < insectBatsGoal)
+                    if (fruitBatsCaptured < fruitBatsGoal)
                     {
                         $('#repositionArrow').show();
                         $('#repositionArrow').css(
