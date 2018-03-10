@@ -1489,13 +1489,11 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
     }
 
     $scope.no = function () {
-        $("#netNormal").show();
-        $("#netCircularField").show();
-        $("#netDragHand").show();
         $("#modal2BMiddle").hide();
         $("#protective2BGear").hide();
         $("#protectiveGear2BProTip").hide();
         $("#starArrow12B").show();
+
         sessionStorage.ecoWoreProtectiveGearStar = false;
         $('.protectiveGear2BChoice').html('<span class="protectiveGearGoodBad2BChoice">RISKY CHOICE!</span><br>Not wearing protective gear<br>puts you at risk of infection.');
         $('.protectiveGear2BChoice').css(
