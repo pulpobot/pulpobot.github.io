@@ -806,6 +806,8 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
     $('#repositionDescription').hide();
     $('#repositionTitle').hide();
     $('#modal2BMiddleComplete').hide();
+    $('#topRow').hide();
+    $('#starsRow').hide();
 
     $("#mission2EndRight").hide();
     $("#batCaptureCircle1").hide();
@@ -851,8 +853,9 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
     }
     var batsInNet = 0;
     var fps = 0.02;
-
     insectBatsInterval = setInterval(function () {
+        var catchMinDist = 50;
+        var catchMaxDist = 230;
         for (var i = 0; i < 5; i++) {
             var bat = "#insectBat" + ((i + 1).toString());
             var dist = Math.abs($(bat).position().top - $("#netNormal").position().top);
@@ -879,7 +882,7 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
                 $(bat).css({ top: ypx });
 
                 //Check if the bat is inside the net
-                if (!insectBatsCompleted && netSet && batsInNet < 1 && $(bat).position().left > $("#netNormal").position().left + 200 && $(bat).position().left < $("#netNormal").position().left + 300 && dist <= 200 && dist > 70) {
+                if (!insectBatsCompleted && netSet && batsInNet < 1 && $(bat).position().left > $("#netNormal").position().left + 200 && $(bat).position().left < $("#netNormal").position().left + 300 && dist <= catchMaxDist && dist > catchMinDist) {
                     $(bat).css(
                    {
                        'z-index': 4
@@ -917,7 +920,7 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
                 }
             }
             //Check if the bat has been dragged enoughly far away from the net
-            else if (!insectBatsCompleted && insectBatTrapped[i] && (dist > 210 || dist < 60)) {
+            else if (!insectBatsCompleted && insectBatTrapped[i] && (dist > (catchMaxDist + 10) || dist < (catchMinDist - 10))) {
                 $(bat).css(
                {
                    'z-index': 1
@@ -935,6 +938,11 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
                 insectBatsCaptured++;
                 insectBatTrapped[i] = false;
                 $('#topCornerInsectBatCounterMission2B').html(insectBatsCaptured.toString());
+
+                $('#globalExpert').hide();
+                $('#globalExpertTitle').hide();
+                $('#globalExpertBubble').hide();
+                $('#globalExpertDescription').hide();
 
                 //Win condition
                 if (insectBatsCaptured >= insectBatsGoal && !insectBatsCompleted) {
@@ -974,11 +982,6 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
 
                     setTimeout(function () {
                         $('#starEarnedTitle').hide();
-                        $('#globalExpert').hide();
-                        $('#globalExpertTitle').hide();
-                        $('#globalExpertBubble').hide();
-                        $('#globalExpertDescription').hide();
-
                     }, 3000);
 
                     if (fruitBatsCaptured < fruitBatsGoal)
@@ -1080,6 +1083,8 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
     
 
     batsInterval = setInterval(function () {
+        var catchMinDist = 30;
+        var catchMaxDist = 230;
         //Fruit Bats Loop
         for (var i = 0; i < 5; i++) {
             var bat = "#fruitBat" + ((i + 1).toString());
@@ -1106,8 +1111,9 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
                 $(bat).css({ left: xpx });
                 $(bat).css({ top: ypx });
                 
+
                 //Check if the bat is inside the net
-                if (!fruitBatsCompleted && netSet && batsInNet < 1 && $(bat).position().left > $("#netNormal").position().left + 200 && $(bat).position().left < $("#netNormal").position().left + 300 && dist <= 200 && dist > 70)
+                if (!fruitBatsCompleted && netSet && batsInNet < 1 && $(bat).position().left > $("#netNormal").position().left + 200 && $(bat).position().left < $("#netNormal").position().left + 300 && dist <= catchMaxDist && dist > catchMinDist)
                 {
                     $(bat).css(
                        {
@@ -1172,7 +1178,7 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
                 }
             }
             //Check if the bat has been dragged enoughly far away from the net
-            else if (!fruitBatsCompleted && batTrapped[i] && (dist > 190 || dist < 70))
+            else if (!fruitBatsCompleted && batTrapped[i] && (dist > (catchMaxDist + 10) || dist < (catchMinDist - 10)))
             {
                 $(bat).css(
                 {
@@ -1191,6 +1197,11 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
                 fruitBatsCaptured++;
                 batTrapped[i] = false;
                 $('#topCornerFruitBatCounterMission2B').html(fruitBatsCaptured.toString());
+
+                $('#globalExpert').hide();
+                $('#globalExpertTitle').hide();
+                $('#globalExpertBubble').hide();
+                $('#globalExpertDescription').hide();
 
                 //Win condition
                 if (fruitBatsCaptured >= fruitBatsGoal && !fruitBatsCompleted) {
@@ -1254,10 +1265,6 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
 
                     setTimeout(function () {
                         $('#starEarnedTitle').hide();
-                        $('#globalExpert').hide();
-                        $('#globalExpertTitle').hide();
-                        $('#globalExpertBubble').hide();
-                        $('#globalExpertDescription').hide();
                     }, 3000);
 
 
@@ -1461,6 +1468,8 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
         $("#protective2BGear").hide();
         $("#protectiveGear2BProTip").hide();
         $("#starArrow12B").show();
+        $('#topRow').show();
+        $('#starsRow').show();
 
         sessionStorage.ecoWoreProtectiveGearStar = true;
         $('#2bMissionStar1').css(
@@ -1493,7 +1502,8 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
         $("#protective2BGear").hide();
         $("#protectiveGear2BProTip").hide();
         $("#starArrow12B").show();
-
+        $('#topRow').show();
+        $('#starsRow').show();
         sessionStorage.ecoWoreProtectiveGearStar = false;
         $('.protectiveGear2BChoice').html('<span class="protectiveGearGoodBad2BChoice">RISKY CHOICE!</span><br>Not wearing protective gear<br>puts you at risk of infection.');
         $('.protectiveGear2BChoice').css(
@@ -1634,7 +1644,7 @@ app.controller("ecologistNetPositionCtrl", function ($scope, $location, $timeout
 app.controller("ecologistResultsCtrl", function ($scope, $location, $timeout) {
     $('body').css(
     {
-        'background-image': 'url(../images/missionStartBackground.jpg)',
+        'background-image': 'url(../images/ecologist/2B_Background_MissionStart.jpg)',
         'background-position': 'center',
         'background-repeat': 'no-repeat',
         'background-size': 'cover'
@@ -1695,16 +1705,25 @@ app.controller("ecologistResultsCtrl", function ($scope, $location, $timeout) {
         'right': '118px'
     });
 
-    setInterval(function () {
+    var countdownInterval = setInterval(function () {
         countdown = --countdown <= 0 ? 10 : countdown;
 
         countdownNumber.html(countdown);
 
-        $('#missionCountdownNumber').css(
+        if (countdown >= 10) {
+            $('#missionCountdownNumber').css(
+            {
+                'right': '118px'
+            });
+        }
+        else
         {
-            'right': '145px'
-        });
-
+            $('#missionCountdownNumber').css(
+            {
+                'right': '145px'
+            });
+        }
+        
     }, 1000);
 
     if(ecologistStars >= 4)
@@ -1724,6 +1743,11 @@ app.controller("ecologistResultsCtrl", function ($scope, $location, $timeout) {
     }
 
     $("#resultsPaneLine").html();
+
+    $scope.continue = function () {
+        clearInterval(countdownInterval);
+        $location.path('epidemiologist');
+    }
 
     //$timeout(function () {
     //    $location.path('epidemiologist');
