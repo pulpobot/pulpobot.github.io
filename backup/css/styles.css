@@ -1,0 +1,1690 @@
+@import url("https://fonts.googleapis.com/css?family=Puritan");
+body, html {
+  height: 100%; 
+   overflow: hidden;
+}
+
+@font-face {
+  font-family: polarisHeavy;
+  src: url(../fonts/GalaxiePolarisHeavy.otf); }
+
+@font-face {
+  font-family: polarisMedium;
+  src: url(../fonts/GalaxiePolarisMedium.otf); }
+
+@font-face {
+  font-family: polarisLight;
+  src: url(../fonts/GalaxiePolarisLight.otf); }
+
+@font-face {
+  font-family: polarisBold;
+  src: url(../fonts/GalaxiePolarisBold.otf); }
+
+@font-face {
+  font-family: sharpGrotesk;
+  src: url(../fonts/sharpGrotesk.otf); }
+
+@font-face {
+  font-family: polarisBook;
+  src: url(../fonts/Polaris-Book.otf); }
+
+@font-face {
+  font-family: MarkerFeltRegular;
+  src: url("../fonts/Marker Felt Regular.ttf"); }
+
+
+h1, h2 {
+  color: #fff; }
+
+.missionContent,
+.protectiveGearContent {
+  padding: 50px; }
+
+.missionContent h1,
+.protectiveGearContent h1 {
+  font-size: 140px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.2; }
+
+.missionObjectiveSpan {
+  font-family: polarisLight; }
+
+.missionContent h2,
+.protectiveGearContent h2 {
+  font-size: 60px;
+  color: #fff;
+  font-family: polarisHeavy;
+  margin-top: -25px; }
+
+#modalMiddle {
+  height: auto;
+  width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -400px; }
+
+.modalHeader {
+  font-size: 72px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; }
+
+.modalHeader h1 {
+  font-size: 72px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; }
+
+#modal2BMiddle {
+  height: auto;
+  width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -400px;
+  z-index: 3;
+}
+
+#modal2BMiddleComplete {
+  height: auto;
+  width: 800px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -400px;
+  z-index: 3;
+}
+
+#modalRight {
+  height: auto;
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  margin-top: -200px;
+  margin-left: 0px;
+  display: none; }
+
+.modalHeaderRight h1{
+ font-size: 72px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; 
+  margin-bottom: 25px;
+}
+
+.mission2ModalHeader h1 {
+  margin-top: -20px;
+  font-size: 68px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; 
+  white-space: nowrap
+}
+
+.mission2ModalTextContent {
+  height: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+  font-family: polarisMedium;
+  font-size: 20px;
+  color: #000;
+  margin-top: -16px; }
+
+
+.mission2ModalNextButton {
+  float: right;
+  color: #fff;
+  font-family: polarisMedium;
+  font-size: 25px; }
+
+#mission2InsectModalRight {
+  height: auto;
+  width: 630px;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  margin-top: -200px;
+  margin-left: 0px;
+  display: none; }
+
+.pgYesNoButton {
+  height: 75px;
+  width: 100%;
+  background: linear-gradient(#a3a3a3 5%, #333333 95%);
+  font-size: 30px;
+  border-radius: 50px;
+  border: 0;
+  color: #fff;
+  font-family: polarisHeavy; }
+
+.resultsButton {
+  height: 75px;
+  width: 40%;
+  background: linear-gradient(#a3a3a3 5%, #333333 95%);
+  align-self:center;
+  font-size: 30px;
+  border-radius: 50px;
+  border: 0;
+  color: #fff;
+  display: block;
+    margin: -30px auto;
+  font-family: polarisHeavy; }
+
+
+#resultsBat {
+  height: auto;
+  width: 100%;
+   display: block;
+    margin: 0 auto;
+  }
+
+#resultsBatNames {
+  border: 0;
+  font-family: polarisHeavy; 
+  font-size: 20px;
+   display: table;
+    margin: 0 auto;
+     align-self:center;
+  }
+
+
+.mission2InsectBatModalHeader h1 {
+  margin-top: -20px;
+  font-size: 103px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; 
+  white-space: nowrap
+}
+
+#mission2EndRight {
+  height: auto;
+  width: 630px;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  margin-top: -200px;
+  margin-left: 0px;
+  display: none; }
+
+.mission2EndRightHeader h1 {
+  margin-top: -20px;
+  font-size: 103px;
+  color: #fff;
+  font-family: polarisHeavy;
+  opacity: 0.4; 
+  white-space: nowrap
+}
+
+.mission2EndModalTextContent {
+  height: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+  font-family: polarisMedium;
+  font-size: 20px;
+  color: #000;
+  margin-top: -16px; }
+
+.mission2EndModalTextContent line{
+  font-family: polarisHeavy;
+  font-size: 25px;
+  color: #000;
+  opacity: 0.75;
+}
+
+.modalTextContent {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.88);
+  font-family: polarisMedium;
+  font-size: 20px;
+  color: #000;
+  margin-top: -15px; }
+
+
+.modal2BTextContent {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.88);
+  font-family: polarisMedium;
+  font-size: 30px;
+  color: #000;
+  margin-top: -15px;
+  align-content: center;
+  align-items: center;
+}
+
+.mission2ModalTextContent line{
+  font-family: polarisHeavy;
+  font-size: 25px;
+  color: #000;
+  opacity: 0.75;
+}
+
+.objectiveHeaderMission {
+  font-size: 16px;
+  font-family: polarisHeavy;
+  color: #000; }
+
+.modalNextButton {
+  float: right;
+  color: #fff;
+  font-family: polarisMedium;
+  font-size: 25px; }
+
+.missionModalNextButton {
+  margin-right: -475px;
+  float: right;
+  color: #fff;
+  font-family: polarisMedium;
+  font-size: 25px; }
+
+#missionBeginText {
+  position: fixed;
+  bottom: 175px;
+  right: 100px;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  opacity: 0.8;
+  font-family: polarisMedium; }
+
+#missionCountdownNumber {
+  position: fixed;
+  bottom: 70px;
+  right: 145px;
+  color: #fff;
+  font-size: 83px;
+  opacity: 0.8;
+  font-family: polarisMedium; }
+
+#currentMissionCountdownNumber {
+  position: fixed;
+  top: 50px;
+  left: 60px;
+  color: #fff;
+  font-size: 24px;
+  opacity: 0.8;
+  font-family: polarisMedium; }
+
+#missionStartCountdown {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 250px;
+  height: 250px;
+  text-align: center; }
+
+#currentMissionCountdown {
+  position: fixed;
+  top: -135px;
+  left: 100px;
+  width: 25px;
+  height: 25px;
+  text-align: center; }
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 250px;
+  transform: rotateY(-180deg) rotateZ(-90deg); }
+
+.currentObjectiveMissionCountdownTimer {
+  stroke-dasharray: 625px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 10px;
+  stroke: #fff;
+  fill: rgba(51, 51, 51, 0.8);
+  animation: countdown 5s linear infinite forwards;
+  z-index: 1; }
+
+.currentMissionCountdownTimer {
+  stroke-dasharray: 215px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 5px;
+  stroke: #fff;
+  fill: rgba(51, 51, 51, 0.8);
+  animation: countdown 88s linear infinite forwards;
+  z-index: 1; }
+
+.nextMissionCountdownTimer {
+  stroke-dasharray: 625px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 10px;
+  stroke: #fff;
+  fill: rgba(51, 51, 51, 0.8);
+  animation: countdown 10s linear infinite forwards;
+  z-index: 1; }
+
+#mission2StartCountdown {
+  position: fixed;
+  bottom: 42px;
+  right: 50px;
+  width: 250px;
+  height: 250px;
+  text-align: center; }
+
+.currentObjectiveMission2CountdownTimer {
+  stroke-dasharray: 625px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 10px;
+  stroke: #fff;
+  fill: rgba(51, 51, 51, 0.8);
+  animation: countdown 30s linear infinite forwards;
+  z-index: 1; }
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px; }
+  to {
+    stroke-dashoffset: 625px; } }
+
+.pgButton {
+  height: 75px;
+  width: 300px;
+  background: linear-gradient(#a3a3a3 5%, #333333 95%);
+  font-size: 30px;
+  border-radius: 25px;
+  border: 0;
+  color: #fff;
+  font-family: polarisHeavy; }
+
+.collectSamplesSpanHeader {
+  font-family: polarisHeavy;
+  font-size: 20px;
+  color: #000; }
+
+.headerRow {
+  height: 15vh; }
+
+.contentRow {
+  height: 85vh; }
+
+#syringeMeter {
+  position: absolute;
+  top: 311px;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 3px solid #fff;
+  border-radius: 25px;
+  overflow: hidden; }
+
+#syringe {
+  top: -150px;
+  left: 425px;
+  z-index: 2;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+  cursor: move; }
+
+#ecologistMission2TopTaskDescription 
+{
+  font-family: polarisBook;
+  font-size: 25px;
+  color: #fff;
+  opacity: 0.75;
+}
+
+
+.topCornerBatModalInsect{
+  width: 50%;
+  height: 120px;
+  margin-left: 150px;
+  background-color: rgba(51, 51, 51, 0.8);
+  margin-top: 45px; 
+  text-align:center;
+  font-family: polarisBold;
+  font-size: 16px;
+  color: #fff;
+}
+
+.topCornerBatModalInsect p{
+  text-align:center;
+  font-family: polarisMedium;
+  font-size: 25px;
+  color: #fff;
+}
+
+#topCornerBat {
+  position: relative;
+  margin-left: -45px;
+  margin-top: -40px;
+  margin-bottom: -50px;
+  z-index: 2;
+  transform: scale(0.4, 0.4);
+}
+
+#topCornerInsectBat {
+  position: relative;
+  margin-top: 20px;
+  z-index: 2;
+  transform: scale(1, 1);
+}
+
+#qTip {
+  position: absolute;
+  top: 355px;
+  left: 75px;
+  height: 50px;
+  width: 50px;
+  background-color: red; }
+
+#dipperMeter {
+  position: absolute;
+  top: 250px;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 3px solid #fff;
+  border-radius: 25px; }
+
+#dipper {
+  top: -255px;
+  left: -250px;
+  z-index: 2;
+  -webkit-transform: rotate(312deg);
+  -moz-transform: rotate(312deg);
+  -ms-transform: rotate(312deg);
+  -o-transform: rotate(312deg);
+  transform: rotate(312deg);
+  cursor: move; }
+
+#fVStar1,
+#fVStar2,
+#fVStar3,
+#fVStar4,
+#fVStar5 {
+  font-size: 100px;
+  color: rgba(0, 0, 0, 0.2); }
+
+.resultsContent {
+  padding-left: 50px; }
+
+.resultsPane {
+  background-color: #ffffff;
+  border-radius: 25px;
+  width: 100%;
+  height: 450px;
+  padding: 25px;
+  font-size: 38px; }
+
+.resultsPane h2{
+ font-family: polarisLight;
+  font-size: 30px;
+  color: #000;
+}
+
+.resultsPane h3 {
+  font-size: 48px; }
+
+.tasksStar {
+  font-size: 46px; }
+
+.missionCountdownText {
+  font-size: 16px; }
+
+#paper1 {
+  position: relative;
+  margin-left: 75px;
+  -webkit-transform: rotate(172deg);
+  -moz-transform: rotate(172deg);
+  -ms-transform: rotate(172deg);
+  -o-transform: rotate(172deg);
+  transform: rotate(172deg);
+  z-index: 1; }
+
+#mission2paper1 {
+  position: relative;
+  margin-left: 50px;
+  -webkit-transform: rotate(172deg);
+  -moz-transform: rotate(172deg);
+  -ms-transform: rotate(172deg);
+  -o-transform: rotate(172deg);
+  transform: rotate(173deg);
+  z-index: 1; }
+
+#paper2 {
+  position: relative;
+  margin-left: -50px;
+  -webkit-transform: rotate(175deg);
+  -moz-transform: rotate(175deg);
+  -ms-transform: rotate(175deg);
+  -o-transform: rotate(175deg);
+  transform: rotate(355deg);
+  z-index: 2; }
+
+#mission2paper2 {
+ position: relative;
+  margin-left: -100px;
+  -webkit-transform: rotate(175deg);
+  -moz-transform: rotate(175deg);
+  -ms-transform: rotate(175deg);
+  -o-transform: rotate(175deg);
+  transform: rotate(-5deg);
+  z-index: 2; }
+
+#paper3 {
+  position: relative;
+  margin-left: -25px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+  z-index: -1; }
+
+#mission2paper3 {
+  position: relative;
+  margin-left: -80px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(5deg);
+  z-index: 3; }
+
+.objectiveHeader {
+  font-size: 33px;
+  font-family: polarisBold;
+  color: #000;
+  opacity: 0.4; }
+
+.taskHeader {
+  font-family: polarisHeavy;
+  font-size: 30px;
+  color: #242424;
+  opacity: 0.9; }
+
+.taskDescription {
+  font-family: 'Puritan', sans-serif;
+  color: #242424;
+  opacity: 0.9;
+  font-size: 24px; }
+
+.missionObjectiveHeader {
+  font-family: sharpGrotesk;
+  color: #ffffff;
+  font-size: 35px;
+  margin-top: 35px; }
+
+.missionDescriptionHeader {
+  font-family: 'Puritan', sans-serif;
+  color: #ffffff;
+  font-size: 25px;
+  margin-top: -5px; }
+
+#objective1 {
+  position: fixed;
+  top: 380px;
+  left: 200px;
+  -webkit-transform: rotate(352deg);
+  -moz-transform: rotate(352deg);
+  -ms-transform: rotate(352deg);
+  -o-transform: rotate(352deg);
+  transform: rotate(352deg);
+  z-index: 3; }
+
+#mission2Objective1 {
+  position: fixed;
+  top: 380px;
+  left: 180px;
+  -webkit-transform: rotate(352deg);
+  -moz-transform: rotate(352deg);
+  -ms-transform: rotate(352deg);
+  -o-transform: rotate(352deg);
+  transform: rotate(352deg);
+  z-index: 3; }
+
+#objective1Task {
+  position: fixed;
+  top: 805px;
+  left: 245px;
+  -webkit-transform: rotate(352deg);
+  -moz-transform: rotate(352deg);
+  -ms-transform: rotate(352deg);
+  -o-transform: rotate(352deg);
+  transform: rotate(352deg);
+  z-index: 3; }
+
+#mission2Objective1Task {
+  position: fixed;
+  top: 805px;
+  left: 200px;
+  -webkit-transform: rotate(352deg);
+  -moz-transform: rotate(352deg);
+  -ms-transform: rotate(352deg);
+  -o-transform: rotate(352deg);
+  transform: rotate(352deg);
+  z-index: 3; }
+
+#mission3Objective1Task {
+  position: fixed;
+  top: 805px;
+  left: 175px;
+  -webkit-transform: rotate(352deg);
+  -moz-transform: rotate(352deg);
+  -ms-transform: rotate(352deg);
+  -o-transform: rotate(352deg);
+  transform: rotate(352deg);
+  z-index: 3; }
+
+#objective1TaskDescription {
+  position: fixed;
+  top: 865px;
+  left: 190px;
+  -webkit-transform: rotate(352deg);
+  -moz-transform: rotate(352deg);
+  -ms-transform: rotate(352deg);
+  -o-transform: rotate(352deg);
+  transform: rotate(352deg);
+  z-index: 3;
+  text-align: center; }
+
+#mission2Objective1TaskDescription {
+  position: fixed;
+  top: 860px;
+  left: 180px;
+  -webkit-transform: rotate(352deg);
+  -moz-transform: rotate(352deg);
+  -ms-transform: rotate(352deg);
+  -o-transform: rotate(352deg);
+  transform: rotate(352deg);
+  z-index: 3;
+  text-align: center; }
+
+#mission3Objective1TaskDescription {
+  position: fixed;
+  top: 850px;
+  left: 250px;
+  -webkit-transform: rotate(352deg);
+  -moz-transform: rotate(352deg);
+  -ms-transform: rotate(352deg);
+  -o-transform: rotate(352deg);
+  transform: rotate(352deg);
+  z-index: 3;
+  text-align: center; }
+
+#objective2 {
+  position: fixed;
+  top: 385px;
+  left: 665px;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg);
+  z-index: 3; }
+
+#mission2Objective2 {
+  position: fixed;
+  top: 385px;
+  left: 665px;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg);
+  z-index: 3; }
+
+#objective2Task {
+  position: fixed;
+  top: 790px;
+  left: 700px;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg);
+  z-index: 3; }
+
+#mission2Objective2Task {
+  position: fixed;
+  top: 790px;
+  left: 655px;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg);
+  z-index: 3; }
+
+#mission3Objective2Task {
+  position: fixed;
+  top: 790px;
+  left: 655px;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg);
+  z-index: 3; }
+
+#objective2TaskDescription {
+  position: fixed;
+  top: 850px;
+  left: 695px;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg);
+  z-index: 3;
+  text-align: center; }
+
+#mission2Objective2TaskDescription {
+  position: fixed;
+  top: 850px;
+  left: 690px;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg);
+  z-index: 3;
+  text-align: center; }
+
+#mission3Objective2TaskDescription {
+  position: fixed;
+  top: 850px;
+  left: 700px;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg);
+  z-index: 3;
+  text-align: center; }
+
+#objective3 {
+  position: fixed;
+  top: 385px;
+  left: 1220px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+  z-index: 3; }
+
+#mission2Objective3 {
+  position: fixed;
+  top: 385px;
+  left: 1200px;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+  z-index: 3; }
+
+#objective3Task {
+  position: fixed;
+  top: 800px;
+  left: 1125px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+  z-index: 3; }
+
+#mission2Objective3Task {
+  position: fixed;
+  top: 800px;
+  left: 1070px;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+  z-index: 3; }
+
+#mission3Objective3Task {
+  position: fixed;
+  top: 800px;
+  left: 1125px;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+  z-index: 3; }
+
+#objective3TaskDescription {
+  position: fixed;
+  top: 855px;
+  left: 1125px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+  z-index: 3;
+  text-align: center; }
+
+#mission2Objective3TaskDescription {
+  position: fixed;
+  top: 855px;
+  left: 1120px;
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  transform: rotate(5deg);
+  z-index: 3;
+  text-align: center; }
+
+#mission3Objective3TaskDescription {
+  position: fixed;
+  top: 855px;
+  left: 1140px;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  transform: rotate(10deg);
+  z-index: 3;
+  text-align: center; }
+
+#syringeIMGObjective {
+  position: fixed;
+  top: 450px;
+  left: 325px;
+  -webkit-transform: rotate(310deg);
+  -moz-transform: rotate(310deg);
+  -ms-transform: rotate(310deg);
+  -o-transform: rotate(310deg);
+  transform: rotate(310deg);
+  z-index: 3; }
+
+#cottonSwabIMGObjective {
+  position: fixed;
+  top: 450px;
+  left: 790px;
+  -webkit-transform: rotate(320deg);
+  -moz-transform: rotate(320deg);
+  -ms-transform: rotate(320deg);
+  -o-transform: rotate(320deg);
+  transform: rotate(320deg);
+  z-index: 3; }
+
+#targetCircleIMGObjective {
+  position: fixed;
+  top: 480px;
+  left: 210px;
+  z-index: 3; }
+
+#syringeIMGMission {
+  position: fixed;
+  top: 320px;
+  left: 950px;
+  -webkit-transform: rotate(310deg);
+  -moz-transform: rotate(310deg);
+  -ms-transform: rotate(310deg);
+  -o-transform: rotate(310deg);
+  transform: rotate(270deg);
+  z-index: 2; }
+
+#potIMGObjective {
+  position: fixed;
+  top: 400px;
+  left: 1060px;
+  -webkit-transform: rotate(330deg);
+  -moz-transform: rotate(330deg);
+  -ms-transform: rotate(330deg);
+  -o-transform: rotate(330deg);
+  transform: rotate(330deg);
+  z-index: 3; }
+
+#oralSampleCanvas {
+  margin-top: 130px; }
+
+.missionObjectiveBox {
+  width: auto;
+  height: 50px;
+  background-color: #ffffff;
+  position: fixed;
+  line-height: 55px;
+  padding-left: 15px;
+  top: 40px;
+  left: 150px; }
+
+.missionObjectiveBoxHeader {
+  font-family: sharpGrotesk;
+  font-size: 25px;
+  color: #000000; }
+
+.resultsPaneHeader {
+  font-family: polarisHeavy;
+  font-size: 25px;
+  color: #000000; }
+
+.result {
+  font-family: sharpGrotesk;
+  font-size: 30px;
+  color: #000000; }
+
+#collectedAllSamples,
+#woreProtectiveGear,
+#bloodSampleBonus,
+#nasalSampleBonus,
+#mosquitoSampleBonus,
+#ecoWoreProtectiveGearStar,
+#ecoCapturedFruitBat,
+#ecoCapturedInsectBat,
+#ecoSpeedBonus,
+#ecoFiveEachBonus {
+  opacity: 0.2; }
+
+.resultsPaneLine {
+  border-top: 2px solid #000000; }
+
+#netIMGObjective {
+  position: fixed;
+  top: 450px;
+  left: 160px;
+  transform: scale(0.95, 0.95);
+  z-index: 3; }
+
+#netNormal {
+    position: absolute;
+    left: 685px;
+    top: 650px;
+}
+
+#netDragHand {
+    position: absolute;
+    left: 885px;
+    top: 780px;
+    z-index: -2;
+}
+
+#netCircularField {
+    position: absolute;
+    left: 635px;
+    top: 920px;
+}
+
+#netPositionConfirmTitleText {
+  text-align:center;
+  position:absolute;
+  top: 720px;
+  left: 720px;
+  font-family: sharpGrotesk;
+  font-weight: 600;
+  font-size: 40px;
+  color: #fff;
+}
+
+#netPositionConfirmDescriptionText {
+  text-align:center;
+  position:absolute;
+  top: 720px;
+  left: 720px;
+  font-family: polarisBook;
+  font-size: 29px;
+  opacity: 0.6;
+  color: #fff;
+}
+
+#fruitBat1 {
+    position: absolute;
+    left: 485px;
+    top: 180px;
+    transform: scale(1, 1);
+    z-index: 1;
+}
+
+#fruitBat2 {
+    position: absolute;
+    left: 685px;
+    top: 180px;
+    transform: scale(1, 1);
+    z-index: 1;
+}
+
+#fruitBat3 {
+    position: absolute;
+    left: 885px;
+    top: 180px;
+    transform: scale(1, 1);
+    z-index: 1;
+}
+
+#fruitBat4 {
+    position: absolute;
+    left: 1085px;
+    top: 180px;
+    transform: scale(1, 1);
+    z-index: 1;
+}
+
+#fruitBat5 {
+    position: absolute;
+    left: 1285px;
+    top: 180px;
+    transform: scale(1, 1);
+    z-index: 1;
+}
+
+#insectBat1 {
+    position: absolute;
+    left: 1085px;
+    top: 800px;
+    /*transform: scale(0.4, 0.4);*/
+    z-index: 1;
+}
+
+#insectBat2 {
+    position: absolute;
+    left: 685px;
+    top: 700px;
+    /*transform: scale(0.4, 0.4);*/
+    z-index: 1;
+}
+
+#insectBat3 {
+   position: absolute;
+    left: 305px;
+    top: 800px;
+    /*transform: scale(0.4, 0.4);*/
+    z-index: 1;
+}
+
+#insectBat4 {
+   position: absolute;
+    left: 1185px;
+    top: 600px;
+    /*transform: scale(0.4, 0.4);*/
+    z-index: 1;
+}
+
+#insectBat5 {
+   position: absolute;
+    left: 1325px;
+    top: 690px;
+    /*transform: scale(0.4, 0.4);*/
+    z-index: 1;
+}
+
+#batCaptureCircle1,
+#batCaptureCircle2,
+#batCaptureCircle3,
+#batCaptureCircle4,
+#batCaptureCircle5,
+#iconArrowDown1,
+#iconArrowDown2,
+#iconArrowDown3,
+#iconArrowDown4,
+#iconArrowDown5 {
+   position: absolute;
+    left: 1325px;
+    top: 690px;
+    z-index: 0;
+}
+
+#swipeText1,
+#swipeText2,
+#swipeText3,
+#swipeText4,
+#swipeText5 {
+    position: absolute;
+    font-family: MarkerFeltRegular;
+    font-size: 30px;
+    color: #fff;
+    left: 1325px;
+    top: 690px;
+    z-index: 0;
+    -webkit-transform: rotate(354deg);
+    -moz-transform: rotate(354deg);
+    -ms-transform: rotate(354deg);
+    -o-transform: rotate(354deg);
+    transform: rotate(354deg); }
+}
+
+#mainPageFolder {
+    position: absolute;
+    left: 140px;
+    top: 70px;
+    transform: rotate(-5deg);
+}
+
+.mainPage2BContent {
+    padding: 50px;
+}
+
+.mainPage2BContent h1 {
+    font-size: 60px;
+    color: #000;
+    font-family: polarisHeavy;
+    transform: rotate(-7deg);
+    position:absolute;
+    left: 300px;
+    top: 230px;
+}
+
+#mainPage2BImage {
+    position: absolute;
+    left: 210px;
+    top: 330px;
+}
+
+.mainPage2BMission {
+    padding: 50px;    
+}
+
+.mainPage2BMission h1 {
+    font-size: 35px;
+    color: #000;
+    font-family: MarkerFeltRegular;
+    transform: rotate(-7deg);
+    position:absolute;
+    left: 360px;
+    top: 690px;
+}
+
+.mainPage2BMission h2 {
+    text-align:center;
+font-size: 20px;
+    color: #000;
+    font-family: polarisMedium;
+    transform: rotate(-7deg);
+    position:absolute;
+    left: 330px;
+    top: 750px;
+    line-height: 2.3;
+}
+
+.mainRightPage2BMission {
+}
+
+.mainRightPage2BMission h1 {
+    font-size: 35px;
+    color: #000;
+    font-family: MarkerFeltRegular;
+    transform: rotate(-6deg);
+    position:absolute;
+    left: 1010px;
+    top: 90px;
+}
+.mainRightPage2BMission h2 {
+    text-align:center;
+    font-size: 40px;
+    color: #000;
+    font-family: MarkerFeltRegular;
+    transform: rotate(-6deg);
+    position:absolute;
+    left: 900px;
+    top: 230px;
+    line-height: 2.3;
+}
+
+#fruitBatIMGObjective {
+  position: fixed;
+  top: 360px;
+  left: 1000px;
+  z-index: 3; }
+
+#fruitBat2BlargeArrow {
+  position: fixed;
+  top: 360px;
+  left: 1000px;
+  z-index: 3; }
+
+#insectBatIMGObjective {
+  position: fixed;
+  top: 530px;
+  left: 1100px;
+  z-index: 3; }
+
+#protectiveGear {
+  position: relative;
+  z-index: 0;
+  top: 150px;
+  left: 250px; }
+
+.protectiveGearChoice {
+  position: absolute;
+  font-family: MarkerFeltRegular;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.protectiveGearGoodBadChoice {
+  font-size: 34px; }
+
+#protective2BGear {
+  position: absolute;
+  top: 170px;
+  left: 250px; 
+  z-index: 3;
+}
+
+.protectiveGear2BProTip {
+  position: fixed;
+  top: 210px;
+  left: 365px;
+  font-family: MarkerFeltRegular;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(350deg);
+  -moz-transform: rotate(350deg);
+  -ms-transform: rotate(350deg);
+  -o-transform: rotate(350deg);
+  transform: rotate(350deg); }
+
+.protectiveGear2BChoice {
+  position: absolute;
+  font-family: MarkerFeltRegular;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.protectiveGearGoodBad2BChoice {
+  font-size: 34px; }
+
+#fruitBatIMGPaper {
+  position: absolute;
+  top: 70px;
+  left: 80px;
+  height: auto;
+  width: 80px; }
+
+#insectBatIMGPaper {
+  position: absolute;
+  top: 70px;
+  left: 285px;
+  height: auto;
+  width: 100px; }
+
+#Objective1Mission2B {
+  text-align:center;
+  position: fixed;
+  top: 125px;
+  left: 85px; }
+
+#Objective2Mission2B {
+  text-align:center;
+  position: fixed;
+  top: 110px;
+  left: 280px; }
+
+.objectiveHeaderMission2B {
+  font-size: 12px;
+  font-family: polarisHeavy;
+  color: #000; }
+
+#topCornerFruitBatCounterMission2B{
+  text-align:center;
+  font-family: polarisBold;
+  font-size: 35px;
+  color: #000;
+  position:fixed;
+  top: 20px;
+  left: 95px;
+}
+
+#topCornerFruitBatCounterMissionGoal2B{
+  text-align:center;
+  font-family: polarisMedium;
+  font-size: 25px;
+  color: #000;
+  position:fixed;
+  top: 30px;
+  left: 120px;
+}
+
+#topCornerInsectBatCounterMission2B{
+   text-align:center;
+  font-family: polarisBold;
+  font-size: 35px;
+  color: #000;
+  position:fixed;
+  top: 20px;
+  left: 305px;
+}
+
+#topCornerInsectBatCounterMissionGoal2B{
+   text-align:center;
+  font-family: polarisMedium;
+  font-size: 25px;
+  color: #000;
+  position:fixed;
+  top: 30px;
+  left: 330px;
+}
+
+.leftMissionHeader2BHR {
+  max-width: 343px;
+  margin: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 35px; }
+
+#starArrow12B {
+  position: absolute;
+  top: 250px;
+  left: 80px;
+  height: auto;
+  width: 75px;
+  z-index: 2;
+}
+
+.mission2BStar {
+  font-size: 59px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #000000; 
+  margin-left: 20px;
+}
+
+
+#fruitBatsTutorial {
+  position: relative;
+  z-index: 0;
+  top: -50px;
+  left: 250px; 
+  z-index: 3;
+  font-family: MarkerFeltRegular;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.fruitBatsTutorialTitle {
+  position: fixed;
+  top: 210px;
+  left: 465px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.fruitBatsTutorialDescription {
+  position: fixed;
+  top: 260px;
+  left: 415px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.fruitBatsTutorialNet {
+  position: fixed;
+  top: 400px;
+  left: 565px;
+  font-family: MarkerFeltRegular;
+  font-size: 38px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); 
+  line-height: 1.7;
+}
+
+.insectBatsTutorialTitle {
+  position: fixed;
+  top: 700px;
+  left: 1365px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.insectBatsTutorialDescription {
+  position: fixed;
+  top: 760px;
+  left: 1315px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+
+#netTutorialArrow {
+  position: absolute;
+  top: 570px;
+  left: 1225px;
+}
+
+.fruitBatsReminderTitle {
+  position: fixed;
+  top: 200px;
+  left: 1365px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.fruitBatsReminderDescription {
+  position: fixed;
+  top: 260px;
+  left: 1385px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+
+.insectBatsReminderTitle {
+ position: fixed;
+  top: 800px;
+  left: 265px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.insectBatsReminderDescription {
+  position: fixed;
+  top: 860px;
+  left: 180px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+.starEarnedTitle {
+  position: fixed;
+  top: 270px;
+  left: 265px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(355deg);
+  -moz-transform: rotate(355deg);
+  -ms-transform: rotate(355deg);
+  -o-transform: rotate(355deg);
+  transform: rotate(355deg); }
+
+#checkFruitBats {
+  position: absolute;
+  top: 60px;
+  left: 95px;
+  z-index: 3;
+}
+
+#checkInsectBats {
+  position: absolute;
+   top: 60px;
+  left: 305px;
+  z-index: 3;
+}
+
+#globalExpert {
+  position: absolute;
+   top: 680px;
+  left: 60px;
+  z-index: 3;
+}
+
+#globalExpertTitle {
+  position: absolute;
+   top: 1030px;
+  left: 90px;
+   font-family: polarisBold;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+#globalExpertBubble {
+  position: absolute;
+   top: 500px;
+  left: 210px;
+}
+
+
+#globalExpertDescription {
+  position: absolute;
+   top: 540px;
+  left: 240px;
+   font-family: polarisMedium;
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  line-height: 1.7;
+
+}
+
+.repositionTitle {
+ position: fixed;
+  top: 800px;
+  left: 265px;
+  font-family: MarkerFeltRegular;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg); }
+
+.repositionDescription {
+  position: fixed;
+  top: 860px;
+  left: 180px;
+  font-family: MarkerFeltRegular;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 4;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  transform: rotate(3deg); }
+
+
+#repositionArrow {
+  position: absolute;
+   top: 500px;
+  left: 210px;
+  -webkit-transform: rotate(220deg);
+  -moz-transform: rotate(220deg);
+  -ms-transform: rotate(220deg);
+  -o-transform: rotate(220deg);
+  transform: rotate(220deg);
+}
+
+#invisibleButton {
+
+    height: 1080px; 
+    width: 1920px;
+    background: transparent;
+    border:none;
+    outline:none;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+}
