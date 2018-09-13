@@ -3121,10 +3121,10 @@ input, select, textarea {
 				-webkit-align-items: center;
 				-ms-align-items: center;
 				align-items: center;
-				-moz-flex-direction: column;
-				-webkit-flex-direction: column;
-				-ms-flex-direction: column;
-				flex-direction: column;
+				-moz-flex-direction: row;
+				-webkit-flex-direction: row;
+				-ms-flex-direction: row;
+				flex-direction: row;
 			}
 
 				.post > header .meta > * {
